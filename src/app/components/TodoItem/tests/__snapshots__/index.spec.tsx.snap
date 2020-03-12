@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoItem Render should match snapshot 1`] = `
+<li
+  class=""
+>
+  <div
+    class="view"
+  >
+    <input
+      class="toggle"
+      type="checkbox"
+    />
+    <label>
+      Teste component render
+    </label>
+    <button
+      class="destroy"
+    />
+  </div>
+</li>
+`;
