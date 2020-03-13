@@ -19,12 +19,17 @@ export function TodoList(props: TodoList.Props) {
     if (todos.length > 0) {
       const hasIncompleted = todos.some((todo) => !todo.completed);
       return (
-        <input
-          className={style.toggleAll}
-          type="checkbox"
-          checked={hasIncompleted}
-          onChange={() => dispatch({ type: TodoActions.Type.COMPLETE_ALL })}
-        />
+        <>
+          {/* tslint:disable-next-line: react-a11y-input-elements */}
+          <input
+            className={style.toggleAll}
+            type="checkbox"
+            checked={hasIncompleted}
+            onChange={() => dispatch({ type: TodoActions.Type.COMPLETE_ALL })}
+            role="checkbox"
+            aria-checked={hasIncompleted}
+          />
+        </>
       );
     }
   }

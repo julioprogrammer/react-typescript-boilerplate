@@ -30,10 +30,10 @@ export function App() {
     }
   }
 
-  const handleFilterChange = (filter: TodoModel.Filter): void => {
-    const nextFilter = FILTER_VALUES.find((value) => value === filter) || TodoModel.Filter.SHOW_ALL;
+  const handleFilterChange = (handleFilter: TodoModel.Filter): void => {
+    const nextFilter = FILTER_VALUES.find((value) => value === handleFilter) || TodoModel.Filter.SHOW_ALL;
     setFilter(nextFilter);
-    history.push(`#${filter}`);
+    history.push(`#${handleFilter}`);
   }
 
   const renderApp = () : JSX.Element => {

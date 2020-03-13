@@ -32,6 +32,15 @@
 - [x] [Mini CSS Extract Plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
 - [x] [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin)
 
+### Prettiers tools
+
+- [x] [TS Lint](https://github.com/palantir/tslint) 6.1
+  - [x] [Tslint Config Prettier](https://github.com/prettier/tslint-config-prettier) 1.18
+  - [x] [Tslint React](https://github.com/palantir/tslint-react) 4.2
+  - [x] [Tslint React A11y](https://github.com/joaovieira/tslint-react-a11y) 1.1
+- [x] [Style Lint](https://github.com/stylelint/stylelint)
+  - [x] [Stylelint Config Standard](https://github.com/stylelint/stylelint-config-standard) 20.0
+
 ## Instalaçāo
 
 ```
