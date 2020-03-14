@@ -15,7 +15,7 @@ export function Header() {
   return (
     <header>
       <h1>Todos</h1>
-      <TodoTextInput newTodo onSave={handleSave} placeholder="What needs to be done?" />
+      <TodoTextInput newTodo={true} onSave={handleSave} placeholder="What needs to be done?" />
     </header>
   );
 }

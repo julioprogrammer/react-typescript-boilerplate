@@ -56,11 +56,14 @@ export function TodoItem(props: TodoItem.Props) {
     } else {
       element = (
         <div className={style.view}>
+          {/* tslint:disable-next-line: react-a11y-input-elements */}
           <input
             className={style.toggle}
             type="checkbox"
             checked={todo.completed}
             onChange={() => todo.id && completeTodo(todo.id)}
+            role="checkbox"
+            aria-checked={todo.completed}
           />
           <label onDoubleClick={() => handleDoubleClick()}>{todo.text}</label>
           <button

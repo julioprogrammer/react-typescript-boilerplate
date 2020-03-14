@@ -36,10 +36,12 @@ export function Footer(props : Footer.Props) {
 
     return (
       <a
+        href={'http://google.com'}
         className={classNames({ [style.default.selected]: filter === selectedFilter })}
         style={{ cursor: 'pointer' }}
         onClick={() => onClickFilter(filter)}
         children={FILTER_TITLES[filter]}
+        role="button"
       />
     );
   }

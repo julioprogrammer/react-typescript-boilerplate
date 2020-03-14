@@ -17,9 +17,7 @@
     "build": "webpack -p --progress --colors",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "tslint": "tslint -c tslint.json 'src/**/*.ts*'",
-    "tslint:fix": "tslint -c tslint.json 'src/**/*.ts*' --fix",
-    "stylelint": "stylelint src/**/*.scss --color",
-    "stylelint:fix": "stylelint src/**/*.scss --fix"
+    "tslint:fix": "tslint -c tslint.json 'src/**/*.ts*' --fix"
   },
   "license": "MIT",
   "devDependencies": {
@@ -67,14 +65,9 @@
     "redux-mock-store": "^1.5.4",
     "sass-loader": "^8.0.2",
     "style-loader": "^0.23.1",
-    "stylelint": "^13.2.1",
-    "stylelint-config-standard": "^20.0.0",
     "ts-jest": "^25.2.1",
     "ts-loader": "^5.3.3",
     "tslint": "^6.1.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^4.2.0",
-    "tslint-react-a11y": "^1.1.0",
     "typescript": "^3.2.4",
     "url-loader": "^1.1.2",
     "webpack": "^4.28.4",

@@ -1,0 +1,35 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-react-a11y",
+    "tslint-config-prettier"
+  ],
+  "jsRules": {},
+  "rules": {
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
+    ],
+    "max-line-length": [
+      true,
+      150
+    ],
+    "object-literal-sort-keys": false,
+    "jsx-no-multiline-js": false,
+    "jsx-wrap-multiline": false,
+    "object-literal-key-quotes": false,
+    "ordered-imports": false,
+    "no-namespace": false,
+    "jsx-no-lambda": false
+  },
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": [
+      "dist",
+      "**/__snapshots__/**"
+    ]
+  }
+}

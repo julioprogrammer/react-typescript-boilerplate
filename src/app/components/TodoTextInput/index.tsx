@@ -34,9 +34,9 @@ export function TodoTextInput(props: TodoTextInput.Props) {
   };
 
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    const text = event.target.value.trim();
+    const textEventTarget = event.target.value.trim();
     if (!props.newTodo) {
-      props.onSave(text);
+      props.onSave(textEventTarget);
     }
   };
 
@@ -53,7 +53,7 @@ export function TodoTextInput(props: TodoTextInput.Props) {
       <input
         className={classes}
         type="text"
-        autoFocus
+        autoFocus={true}
         placeholder={props.placeholder}
         value={text}
         onBlur={handleBlur}
