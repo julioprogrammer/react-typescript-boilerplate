@@ -2,6 +2,7 @@
 // Please do not change this file!
 interface CssExports {
   'clearCompleted': string;
+  'clearCompletedhtml': string;
   'count': string;
   'filters': string;
   'normal': string;

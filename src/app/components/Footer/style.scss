@@ -5,7 +5,7 @@
   text-align: center;
   border-top: 1px solid #e6e6e6;
 
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     right: 0;
@@ -13,8 +13,12 @@
     left: 0;
     height: 50px;
     overflow: hidden;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2),
-      0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    box-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #f6f6f6,
+      0 9px 1px -3px rgba(0, 0, 0, 0.2),
+      0 16px 0 -6px #f6f6f6,
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -37,7 +41,8 @@
       border: 1px solid transparent;
       border-radius: 3px;
 
-      &:hover, .selected {
+      &:hover,
+      .selected {
         border-color: rgba(175, 47, 47, 0.1);
       }
 
@@ -57,24 +62,27 @@
   }
 }
 
-.clearCompleted,
-html .clearCompleted:active {
-  float: right;
-  position: relative;
-  line-height: 20px;
-  text-decoration: none;
-  cursor: pointer;
-  position: relative;
-}
+.clearCompleted {
+  &html {
+    &:active {
+      float: right;
+      position: relative;
+      line-height: 20px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
 
-.clearCompleted:hover {
-  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 @media (max-width: 430px) {
   .normal {
     height: 50px;
   }
+
   .filters {
     bottom: 10px;
   }

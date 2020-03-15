@@ -8,7 +8,9 @@ exports[`TodoItem Render should match snapshot 1`] = `
     class="view"
   >
     <input
+      aria-checked="false"
       class="toggle"
+      role="checkbox"
       type="checkbox"
     />
     <label>

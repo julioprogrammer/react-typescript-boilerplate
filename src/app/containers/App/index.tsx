@@ -21,10 +21,17 @@ export function App() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [filter, setFilter] = React.useState(TodoModel.Filter.SHOW_ALL);
-  const todos = useSelector((state : RootState) : TodoModel[] => (state.todos));
+  const todosReducer = useSelector((state : RootState) : TodoModel[] => (state.todos));
+
+  React.useEffect(() => {
+    fetch('/api/todos')
+      .then(response => response.json())
+      .then((json) => json.todos)
+      .then((todos : TodoModel[]) => dispatch({ type: TodoActions.Type.REQUEST_TODO, payload: todos }))
+  }, []);
 
   const handleClearCompleted = (): void => {
-    const hasCompletedTodo = todos.some((todo) => todo.completed || false);
+    const hasCompletedTodo = todosReducer.some((todo) => todo.completed || false);
     if (hasCompletedTodo) {
       dispatch({ type: TodoActions.Type.CLEAR_COMPLETED });
     }
@@ -37,9 +44,9 @@ export function App() {
   }
 
   const renderApp = () : JSX.Element => {
-    const activeCount = todos.length - todos.filter((todo) => todo.completed).length;
-    const filteredTodos = filter ? todos.filter(FILTER_FUNCTIONS[filter]) : todos;
-    const completedCount = todos.reduce((count, todo) => (todo.completed ? count + 1 : count), 0);
+    const activeCount = todosReducer.length - todosReducer.filter((todo) => todo.completed).length;
+    const filteredTodos = filter ? todosReducer.filter(FILTER_FUNCTIONS[filter]) : todosReducer;
+    const completedCount = todosReducer.reduce((count, todo) => (todo.completed ? count + 1 : count), 0);
 
     return (
       <div className={style.normal}>
