@@ -5,7 +5,7 @@ import { TodoModel } from 'app/models';
 
 const initialState: RootState.TodoState = [
   {
-    id: 1,
+    id: 99999,
     text: 'Use Redux',
     completed: false
   }
@@ -47,6 +47,9 @@ export const todoReducer = handleActions<RootState.TodoState, TodoModel>(
     },
     [TodoActions.Type.CLEAR_COMPLETED]: (state, action) => {
       return state.filter((todo) => todo.completed === false);
+    },
+    [TodoActions.Type.REQUEST_TODO]: (state, action) => {
+      return [ ...state, ...action.payload as any ]
     }
   },
   initialState
