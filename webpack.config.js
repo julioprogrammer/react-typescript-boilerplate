@@ -11,7 +11,8 @@ var outPath = path.join(__dirname, './build');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
+var StyleLintPlugin = require('stylelint-webpack-plugin');
+var DotenvPlugin = require('webpack-dotenv-plugin');
 
 module.exports = {
   context: sourcePath,
@@ -91,7 +92,6 @@ module.exports = {
         ]
       },
       // static assets
-      { test: /\.html$/, use: 'html-loader' },
       { test: /\.(a?png|svg)$/, use: 'url-loader?limit=10000' },
       {
         test: /\.(jpe?g|gif|bmp|mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/,
@@ -128,8 +128,14 @@ module.exports = {
       chunkFilename: !isProduction ? '[id].css' : '[id].[hash].css',
       disable: !isProduction
     }),
+    new DotenvPlugin({
+      sample: `config/environments/.env`,
+      path: `config/environments/.env`
+    }),
     new HtmlWebpackPlugin({
       template: 'assets/index.html',
+      hash: true,
+      chunks: isProduction ? ['index', 'vendor'] : false,
       minify: {
         minifyJS: true,
         minifyCSS: true,
@@ -139,13 +145,14 @@ module.exports = {
         collapseInlineTagWhitespace: true
       },
       append: {
-        head: `<script src="//cdn.polyfill.io/v3/polyfill.min.js"></script>`
+        head: `<script src="//cdn.polyfill.io/v3/polyfill.min.js"></script>`,
       },
       meta: {
         title: package.name,
         description: package.description,
         keywords: Array.isArray(package.keywords) ? package.keywords.join(',') : undefined
-      }
+      },
+      apiUrl: process.env.API_URL
     }),
     new StyleLintPlugin({
       emitErrors: false,
